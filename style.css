@@ -1,0 +1,103 @@
+body {
+    background: lightblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: left;
+}
+
+h1 {
+    padding: 0px;
+    font-size: 5em;
+    display: left;
+    white-space: nowrap;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+button {
+    font-size: 50px;
+    display: round;
+    max-width: 500px;
+    max-height: 200px;
+    color: #A68ECC; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    border-style: solid;
+    padding: 15px;
+    align-items: left;
+}
+
+button:hover {
+    background: purple;
+    color: lavender;
+}
+
+#btnArea {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: left;
+}
+
+#txtArea {
+    font-size: 40px;
+    padding: 2%;
+    width: 48%;
+    height: 99%;
+    align-self: right;
+    background-color: aliceblue;
+    border-radius: 5px;
+    border-color: black;
+    border-width: 5px;
+    margin-left: 48%;
+}
+
+#startBtn {
+    background-color: darkblue;
+    font-size: 60px;
+    width: fit-content;
+    height: min-content;
+}
+
+#startBtn:hover {
+    transition: 0.5s;
+    background: rgb(25, 25, 197);
+    color: lightgray;
+    
+}
+
+#restart {
+    color: darkgray;
+    background: lightgray;
+}
+
+#restart:hover {
+    transition: 0.5s;
+    background: gray;
+    color: lightgray;
+}
+
+#smallArea{
+    padding: 40px;
+}
+
+@media screen and (max-width: 1000px) {
+    h1{
+      font-size: 3em;
+    }
+  
+    button{
+      font-size: 1em;
+    }
+  
+    #playArea{
+      font-size: 1em;
+    }
+  
+    #buttonArea{
+      flex-direction: column;
+      padding: 1em
+    }
+  }
