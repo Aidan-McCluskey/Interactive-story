@@ -18,22 +18,41 @@ h2 {
 
 button {
     font-size: 50px;
-    display: round;
-    max-width: 500px;
-    max-height: 200px;
-    color: darkgray; 
+    display: inline-block;
+    position: relative;
+    max-width: 70%;
+    max-height: 300px;
+    color: aliceblue; 
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     border-radius: 5px;
     border-style: solid;
     border: #302b27;
+    background-color: #4e60b4;
     padding: 10px;
     align-items: left;
+    margin: 4px;
 }
 
 button:hover {
-    background: rgb(25, 25, 197);
-    color: lightgray;
+    background: #243dad;
+    color: aliceblue;
+    padding-right: 24px;
+    padding-left:8px;
+}
+
+button:after {
+    content: 'ඞ';
+    position: absolute;
+    opacity: 0;  
+    top: 14px;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+button:hover:after {
+  opacity: 1;
+  right: 10px;
 }
 
 .flex{
@@ -53,7 +72,7 @@ button:hover {
 
 #btnArea {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     flex-direction: column;
     align-items: left;
 }
@@ -62,7 +81,7 @@ button:hover {
     font-size: 40px;
     padding: 2%;
     height: 100%;
-    /* width: 100%; */
+    border-radius: 5px;
     background-color: aliceblue;
     color: #302b27;
 }
@@ -76,7 +95,7 @@ button:hover {
 }
 
 #startBtn:hover {
-    transition: 0.5s;
+    transition: 0.5s ease;
     background: #243dad;
     
 }
@@ -86,7 +105,7 @@ button:hover {
 }
 
 #restart {
-    transition: 0.5s;
+    transition: 0.5s ease;
     background: hsl(295, 56%, 76%);
     color: aliceblue;
     border: #302b27;
