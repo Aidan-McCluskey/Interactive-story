@@ -55,7 +55,7 @@ button:hover:after {
   right: 10px;
 }
 
-.flex{
+.flex {
     display: flex;
 }
 
@@ -78,7 +78,7 @@ button:hover:after {
 }
 
 #txtArea {
-    font-size: 40px;
+    font-size: 60px;
     padding: 2%;
     height: 100%;
     border-radius: 5px;
@@ -117,9 +117,17 @@ button:hover:after {
 
 @media screen and (max-width: 1000px) {
     h1{
-      font-size: 3em;
+      font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1em;
     }
   
+    body {
+        font-size: 2em;
+    }
+
     button{
       font-size: 1em;
     }
