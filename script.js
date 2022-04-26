@@ -1,4 +1,3 @@
-window.onload = function () {
     var durability = 8;
     var story = {
         // var name of option: {
@@ -8,7 +7,8 @@ window.onload = function () {
 
         storyStart: {
             text: "It is the year 3052 and Joe Rogan has become functionally immortal after establishing a monopoly on all podcasts everywhere. \nYou are given the opportunity to go on an adventure to take him down. \n\nGo on an adventure to end Joe Rogan's monopoly on all podcasts?",
-            options: [["accept", "Head towards the woods"], ["deny", "No, go home."]]
+            options: [["accept", "Head towards the woods"], ["deny", "No, go home."]],
+            durability: 0
         },
 
         deny: {
@@ -17,7 +17,8 @@ window.onload = function () {
 
         accept: {
             text: "Night falls. \nDo you continue to travel?",
-            options: [["maze", "Head towards what seems to be an abandoned shack."], ["dumb", "Yes."], ["lost", "Find a tree to sleep under until dawn."], ["fortnite", "Survey the area for options."]]
+            options: [["maze", "Head towards what seems to be an abandoned shack."], ["dumb", "Yes."], ["lost", "Find a tree to sleep under until dawn."], ["fortnite", "Survey the area for options."]],
+            durability: 0
         },
 
         dumb: {
@@ -292,7 +293,7 @@ window.onload = function () {
 
         check1: {
             text: "You find HIM sneaking around Joe's studio, trying to find a way to take over the podcast for himself, and to conceal his presence, only has a dagger.",
-            options: durability <= 0 ? [["succeed", "Continue"]] : [["fail2", "Continue"]]
+            options: () => {if(durability <= 0){return [["fail2", "Continue"]]} else {return [["succeed", "Continue"]]}}
         },
 
 
@@ -446,7 +447,7 @@ window.onload = function () {
         breakdown4: {
             text: "You break down the door with your wooden sword and it loses 4 durability. You enter his empire and start sneaking your way towards his studio.",
             options: [["reachStudio4", "Continue"]],
-            durability: -2
+            durability: -4
         },
 
         sneak4: {
@@ -472,7 +473,7 @@ window.onload = function () {
         counterattack4: {
             text: "You manage to weaken him enough so that he runs away, out of your sword's range.",
             options: [["chase4", "Give chase with your sword (-2 durability)."], ["azkarShoot4", "Take the shot with Azkar from a distance"]],
-            durability: - 2
+            durability: -2
         },
 
         azkarShoot4: {
@@ -527,7 +528,7 @@ window.onload = function () {
         breakdown5: {
             text: "You break down the door with your wooden sword and it loses 4 durability. You enter his empire and start sneaking your way towards his studio.",
             options: [["reachStudio5", "Continue"]],
-            durability: -2
+            durability: -4
         },
 
         sneak5: {
@@ -548,7 +549,7 @@ window.onload = function () {
         counterattack5: {
             text: "You manage to weaken him enough so that he runs away, out of your sword's range.",
             options: [["chase5", "Give chase with your sword (-2 durability)."]],
-            durability: - 2
+            durability: -2
         },
 
         fendOff5: {
@@ -583,7 +584,7 @@ window.onload = function () {
 
         check4: {
             text: "You find HIM sneaking around Joe's studio, trying to find a way to take over the podcast for himself, and to conceal his presence, only has a dagger.",
-            options: durability <= 0 ? [["succeed", "Continue"]] : [["fail2", "Continue"]]
+            options: durability <= 0 ?  [["fail2", "Continue"]] : [["succeed", "Continue"]]
         },
 
 
@@ -608,11 +609,12 @@ window.onload = function () {
     var btnArea = document.getElementById("btnArea");
     var txtArea = document.getElementById("txtArea");
 
-    function writeText(text) {
+    function writeText() {
         txtArea.innerHTML = '';
         btnArea.innerHTML = '';
         let currentPage = playerChoices[playerChoices.length - 1];
-        durability += currentPage.durability;
+        story[currentPage].durability ? durability += story[currentPage].durability : false;
+        console.log(durability);
         for (let plot of playerChoices) {
             addStory(story[plot].text)
         }
@@ -640,4 +642,3 @@ window.onload = function () {
     startBtn.addEventListener("click", function () {
         writeText(story.storyStart.text);
     })
-}
