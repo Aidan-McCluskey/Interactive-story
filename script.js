@@ -374,7 +374,7 @@
 
         check2: {
             text: "You find HIM sneaking around Joe's studio, trying to find a way to take over the podcast for himself, and to conceal his presence, only has a dagger.",
-            options: durability <= 0 ? [["succeed", "Continue"]] : [["fail2", "Continue"]]
+            options: () => {if(durability <= 0){return [["fail2", "Continue"]]} else {return [["succeed", "Continue"]]}}
         },
 
 
@@ -513,7 +513,7 @@
 
         check4: {
             text: "You find HIM sneaking around Joe's studio, trying to find a way to take over the podcast for himself, and to conceal his presence, only has a dagger.",
-            options: durability <= 0 ? [["succeed", "Continue"]] : [["fail2", "Continue"]]
+            options: () => {if(durability <= 0){return [["fail2", "Continue"]]} else {return [["succeed", "Continue"]]}}
         },
 
 
@@ -553,7 +553,7 @@
         },
 
         fendOff5: {
-            text: "You just manage to deflect enough hits to be able to run to a safe distance. You take aim with Azkar... and its over.",
+            text: "You just manage to deflect enough hits to be able to run to a safe distance.",
             options: [["kill5", "Continue"]]
         },
 
@@ -582,9 +582,9 @@
             options: [["fail1", "Continue"]]
         },
 
-        check4: {
+        check5: {
             text: "You find HIM sneaking around Joe's studio, trying to find a way to take over the podcast for himself, and to conceal his presence, only has a dagger.",
-            options: durability <= 0 ?  [["fail2", "Continue"]] : [["succeed", "Continue"]]
+            options:  [["fail2", "Continue"], ["succeed", "Continue"]]
         },
 
 
@@ -618,9 +618,18 @@
         for (let plot of playerChoices) {
             addStory(story[plot].text)
         }
-        for (let plot of story[currentPage].options) {
+        if (currentPage === "check5" || "check4" || "check3" || "check2" || "check1") {
+            if (durability <= 2) {
+                createButton(story[currentPage].options[0][1], story[currentPage].options[0][0]);
+            } else {
+                createButton(story[currentPage].options[1][1], story[currentPage].options[1][0]);
+            }
+        } else {
+            for (let plot of story[currentPage].options) {
             createButton(plot[1], plot[0]);
+            }
         }
+        
 
     }
 
