@@ -148,10 +148,15 @@
 
         rush: {
             text: "You rush Tyler Ninja Fortnite Blevins in the hopes of taking him down before he has a chance to heal. An Epic build battle ensues, and you use your crossbow to shoot down his builds.",
-            options: [["battleWin", "You win the Battle Royale."]]
+            options: [["battleWin2", "You win the Battle Royale."]]
         },
 
         battleWin: {
+            text: "As you climb upon the hilltop to proclaim your swag victory royale, you noclip through the floor again and fall right next to the exit of something underground. 'Glad I didn't go that way' you mutter to yourself. You wonder if all that actually happened, but you assure yourself that it did.",
+            options: [["mentor2", "You pass out."]]
+        },
+
+        battleWin2: {
             text: "As you climb upon the hilltop to proclaim your swag victory royale, you noclip through the floor again and fall right next to the exit of something underground. 'Glad I didn't go that way' you mutter to yourself. You wonder if all that actually happened, but you assure yourself that it did.",
             options: [["mentor3", "You pass out."]]
         },
